@@ -1,4 +1,4 @@
-from flask import Flasks
+from flask import Flask
 from main import wishlist_games_available_on_game_pass
 
 app = Flask(__name__)
