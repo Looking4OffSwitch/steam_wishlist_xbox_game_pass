@@ -5,6 +5,7 @@ from stop_words import get_stop_words
 import nltk
 from nltk.corpus import stopwords
 
+
 def clean_string(text: str):
     text = text.lower()
     text = ''.join(word for word in text if word not in string.punctuation)
@@ -26,4 +27,4 @@ def degree_difference(str1: string, str2: string):
 
 
 if __name__ == 'utils':
-     nltk.download('stopwords', quiet=True)
+    nltk.download('stopwords', quiet=True)

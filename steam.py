@@ -12,6 +12,8 @@ def get_steam_wishlist_game_names(steamid: str, sort: bool = True):
         response = requests.get(url)
         response.raise_for_status()
 
+        # print(response.content)
+
         wishlist_infos = response.json()
 
         # Looks like: {'244850': {'name': 'Space Engineers', 'capsule': ...
