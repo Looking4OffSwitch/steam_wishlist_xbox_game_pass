@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse
-import mailer
+from mailer import Emailer
 from steam import get_steam_wishlist_game_names
 from xbox import get_xbox_game_pass_game_names
 from utils import degree_difference
@@ -23,16 +23,14 @@ def wishlist_games_available_on_game_pass(steamid: str, max_levenshtein_dist: in
 def send_email_of_games(games):
 
     if len(games) > 0:
-        mailer = mailer.Emailer()
+        mailer = Emailer()
         sendTo = "reed@themanginos.com"
         emailSubject = ""
 
         emailSubject = "New Xbox Game Pass Game From Steam Wishlist"
 
-        game_names = '\n'.join(games)
-
-        mailer.sendmail(sendTo, emailSubject, game_names)
-        print('email sent')
+        mailer.sendmail(sendTo, emailSubject, str(games))
+        print('** email sent **')
 
 
 if __name__ == '__main__':
